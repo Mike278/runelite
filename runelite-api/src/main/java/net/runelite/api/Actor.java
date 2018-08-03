@@ -239,4 +239,10 @@ public interface Actor extends Renderable
 	 * @return the overhead text
 	 */
 	String getOverhead();
+
+	int[] getHitsplatValues();
+
+	int[] getHitsplatTypes();
+
+	int[] getHitsplatCycles();
 }

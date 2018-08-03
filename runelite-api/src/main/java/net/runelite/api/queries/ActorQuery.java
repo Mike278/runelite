@@ -28,6 +28,7 @@ import static java.lang.Math.abs;
 import net.runelite.api.Actor;
 import net.runelite.api.Query;
 import net.runelite.api.coords.LocalPoint;
+import net.runelite.api.coords.WorldPoint;
 
 public abstract class ActorQuery<EntityType extends Actor, QueryType> extends Query<EntityType, QueryType>
 {
@@ -71,6 +72,13 @@ public abstract class ActorQuery<EntityType extends Actor, QueryType> extends Qu
 	public QueryType atLocalLocation(LocalPoint location)
 	{
 		predicate = and(actor -> actor.getLocalLocation().equals(location));
+		return (QueryType) this;
+	}
+
+	@SuppressWarnings("unchecked")
+	public QueryType atWorldPoint(WorldPoint point)
+	{
+		predicate = and(actor -> actor.getWorldLocation().equals(point));
 		return (QueryType) this;
 	}
 
